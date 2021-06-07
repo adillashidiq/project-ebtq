@@ -37,6 +37,5 @@ class Tugas extends BaseController
 
   public function detail($slug)
   {
-    echo $slug;
   }
 }
