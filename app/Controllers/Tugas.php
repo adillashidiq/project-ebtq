@@ -29,8 +29,10 @@ class Tugas extends BaseController
 
   public function addtugas()
   {
+    // session();
     $data = [
-      'title' => 'Tambah Tugas | E-BTQ HMJ TI'
+      'title' => 'Tambah Tugas | E-BTQ HMJ TI',
+      'validation' => \Config\Services::validation()
     ];
     return view('tugas/add-tugas', $data);
   }
@@ -51,6 +53,20 @@ class Tugas extends BaseController
 
   public function input()
   {
+    if (!$this->validate([
+      'nama_surah' => [
+        'rules' => 'required|is_unique[tugas.nama_surah]',
+        'errors' => [
+          'required' => 'Nama Surah harus diisi',
+          'is_unique' => 'Nama Surah sudah terdaftar'
+        ],
+        'tugas' => 'required'
+      ]
+    ])) {
+      $validation = \Config\Services::validation();
+      return redirect()->to('/tugas/addtugas')->withInput()->with('validation', $validation);
+    }
+
     $slug = url_title($this->request->getVar('nama_surah'), '-', true);
 
     $this->tugasModel->save([
