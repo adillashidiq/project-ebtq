@@ -15,7 +15,7 @@ echo $this->include('layout/sidenav');
             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
               <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
               <li class="breadcrumb-item"><a href="/tugas">Tugas</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Input Tugas</li>
+              <li class="breadcrumb-item active" aria-current="page">E-BTQ</li>
             </ol>
           </nav>
         </div>
@@ -33,7 +33,7 @@ echo $this->include('layout/sidenav');
       <div class="card">
         <!-- Card header -->
         <div class="card-header border-0">
-          <h3 class="mb-0 text-center">INPUT TUGAS E-BTQ</h3>
+          <h3 class="mb-0 text-center">TUGAS E-BTQ</h3>
         </div>
         <!-- Light table -->
         <div class="table-responsive">
@@ -42,10 +42,7 @@ echo $this->include('layout/sidenav');
               <tr>
                 <th scope="col" class="sort" data-sort="no">No</th>
                 <th scope="col" class="sort" data-sort="nama surah">Nama Surah</th>
-                <th scope="col" class="sort" data-sort="tugas">Tugas </th>
-                <th scope="col" class="sort" data-sort="upload">Ambil Tugas</th>
-                <th scope="col" class="sort" data-sort="validasi">Validasi</th>
-                <th scope="col" class="sort" data-sort="completion">Kelengkapan</th>
+                <th scope="col" class="sort" data-sort="tugas">Tugas</th>
                 <th scope="col" class="sort" data-sort="aksi">Aksi</th>
               </tr>
             </thead>
@@ -56,10 +53,7 @@ echo $this->include('layout/sidenav');
                   <th scope="row"><?= $angka++ ?></th>
                   <td><?= $tgs['nama_surah'] ?></td>
                   <td><?= $tgs['tugas'] ?></td>
-                  <td><input type="button" class="btn btn-sm btn-neutral" value="Ambil Tugas"></td>
-                  <td><input type="button" class="btn btn-sm btn-neutral" value=""></td>
-                  <td><input type="button" class="btn btn-sm btn-neutral" value=""></td>
-                  <td><a href="/tugas/detail"><input type="button" class="btn btn-sm btn-neutral" value="Detail"></a></td>
+                  <td><a href="/tugas/<?= $tgs['slug']; ?>"><input type="button" class="btn btn-sm btn-neutral" value="Detail Tugas"></a></td>
                 </tr>
               <?php endforeach ?>
             </tbody>
