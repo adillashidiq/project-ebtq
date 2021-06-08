@@ -46,13 +46,19 @@ echo $this->include('layout/sidenav');
               <div class="row mb-3">
                 <label for="nama_surah" class="col-sm-2 col-form-label">Nama Surah</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="nama_surah" name="nama_surah" required="required">
+                  <input type="text" class="form-control <?= ($validation->hasError('nama_surah')) ? 'is-invalid' : ''; ?>" id="nama_surah" name="nama_surah" value="<?= old('nama_surah'); ?>">
+                  <div id="nama_surah" class="invalid-feedback">
+                    <?= $validation->getError('nama_surah'); ?>
+                  </div>
                 </div>
               </div>
-              <div class="row mb-3">
+              <div class=" row mb-3">
                 <label for="tugas" class="col-sm-2 col-form-label">Tugas</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="tugas" name="tugas" required="required">
+                  <input type="text" class="form-control <?= ($validation->hasError('tugas')) ? 'is-invalid' : ''; ?>" id="tugas" name="tugas" value="<?= old('tugas'); ?>">
+                  <div id="nama_surah" class="invalid-feedback">
+                    <?= $validation->getError('tugas'); ?>
+                  </div>
                 </div>
               </div>
               <button type="submit" class="btn btn-primary" name="submit-tugas">Tambah Tugas</button>
