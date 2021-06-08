@@ -40,12 +40,13 @@ echo $this->include('layout/sidenav');
         <!-- Light table -->
         <tr>
           <div class="card-body">
-            <form action="/pages/act" method="post">
+            <form action="/tugas/input" method="post">
+              <!-- cross site resource forgery -->
               <?= csrf_field(); ?>
               <div class="row mb-3">
-                <label for="nama surah" class="col-sm-2 col-form-label">Nama Surah</label>
+                <label for="nama_surah" class="col-sm-2 col-form-label">Nama Surah</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="nama surah" name="nama surah" required="required">
+                  <input type="text" class="form-control" id="nama_surah" name="nama_surah" required="required">
                 </div>
               </div>
               <div class="row mb-3">
