@@ -7,6 +7,8 @@ use CodeIgniter\Model;
 class TugasModel extends Model
 {
   protected $table = 'tugas';
+  protected $useTimestamps = true;
+  protected $allowedFields = ['nama_surah', 'slug', 'tugas'];
 
 
   public function getTugas($slug = false)
