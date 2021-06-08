@@ -15,12 +15,9 @@ echo $this->include('layout/sidenav');
             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
               <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
               <li class="breadcrumb-item"><a href="/tugas">Tugas</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Input Tugas</li>
+              <li class="breadcrumb-item active" aria-current="page"><?= $tugas['slug']; ?></li>
             </ol>
           </nav>
-        </div>
-        <div class="col-lg-6 col-7 text-right">
-          <a href="/tugas/addtugas" class="btn btn-sm btn-neutral">Tambah Tugas</a>
         </div>
       </div>
     </div>
@@ -32,42 +29,23 @@ echo $this->include('layout/sidenav');
     <div class="col">
       <div class="card">
         <!-- Card header -->
-        <div class="card-header border-0">
-          <h3 class="mb-0 text-center">INPUT TUGAS E-BTQ</h3>
+        <div class="card text-center">
+          <div class="card-header">
+            DETAIL TUGAS
+          </div>
+          <div class="card-body">
+            <h1 class="card-title"><?= $tugas['nama_surah']; ?></h1>
+            <p class="card-text"><b><?= $tugas['tugas']; ?></b></p>
+            <a href="#" class="btn btn-primary">Validasi</a>
+            <a href="#" class="btn btn-primary">Kelengkapan</a>
+            <a href="#" class="btn btn-success">Ambil Tugas</a>
+          </div>
+          <div class="card-footer text-muted">
+            <?= $tugas['created_at']; ?>
+          </div>
         </div>
-        <!-- Light table -->
-        <div class="table-responsive">
-          <table class="table align-items-center table-flush">
-            <thead class="thead-light">
-              <tr>
-                <th scope="col" class="sort" data-sort="no">No</th>
-                <th scope="col" class="sort" data-sort="nama surah">Nama Surah</th>
-                <th scope="col" class="sort" data-sort="tugas">Tugas </th>
-                <th scope="col" class="sort" data-sort="upload">Ambil Tugas</th>
-                <th scope="col" class="sort" data-sort="validasi">Validasi</th>
-                <th scope="col" class="sort" data-sort="completion">Kelengkapan</th>
-              </tr>
-            </thead>
-            <tbody class="list">
-              <?php $angka = 1; ?>
-              <?php foreach ($tugas as $tgs) : ?>
-                <tr>
-                  <th scope="row"><?= $angka++ ?></th>
-                  <td><?= $tgs['nama_surah'] ?></td>
-                  <td><?= $tgs['tugas'] ?></td>
-                  <td><input type="button" class="btn btn-sm btn-neutral" value="Ambil Tugas"></td>
-                  <td><input type="button" class="btn btn-sm btn-neutral" value=""></td>
-                  <td><input type="button" class="btn btn-sm btn-neutral" value=""></td>
-                  <td><a href="/tugas/<?= $tgs['slug']; ?>"><input type="button" class="btn btn-sm btn-neutral" value="Detail"></a></td>
-                </tr>
-              <?php endforeach ?>
-            </tbody>
-            <div class="row mt-3">
-              <?php
-              if (isset($_GET['msg'])) {
-                echo $_GET['msg'];
-              }
-              ?>
-            </div>
-        </div>
-        <?= $this->endSection(); ?>
+      </div>
+    </div>
+  </div>
+</div>
+<?= $this->endSection(); ?>
