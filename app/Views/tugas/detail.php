@@ -41,7 +41,7 @@ echo $this->include('layout/sidenav');
             <a href="#" class="btn btn-success">Ambil Tugas</a>
           </div>
           <div class="card-footer text-muted">
-            <?= $tugas['created_at']; ?>
+            Dibuat pada <br> <?= $tugas['created_at']; ?>
           </div>
         </div>
       </div>
