@@ -35,6 +35,11 @@ echo $this->include('layout/sidenav');
         <div class="card-header border-0">
           <h3 class="mb-0 text-center">TUGAS E-BTQ</h3>
         </div>
+        <?php if (session()->getFlashdata('pesan')) : ?>
+          <div class="alert alert-success" role="alert">
+            <?= session()->getFlashdata('pesan'); ?>
+          </div>
+        <?php endif; ?>
         <!-- Light table -->
         <div class="table-responsive">
           <table class="table align-items-center table-flush">
