@@ -57,10 +57,15 @@ class Tugas extends BaseController
       'nama_surah' => [
         'rules' => 'required|is_unique[tugas.nama_surah]',
         'errors' => [
-          'required' => 'Nama Surah harus diisi',
-          'is_unique' => 'Nama Surah sudah terdaftar'
-        ],
-        'tugas' => 'required'
+          'required' => 'Nama surah harus diisi',
+          'is_unique' => 'Nama surah sudah terdaftar'
+        ]
+      ],
+      'tugas' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'Deskripsi tugas harus diisi'
+        ]
       ]
     ])) {
       $validation = \Config\Services::validation();
