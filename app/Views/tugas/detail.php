@@ -34,18 +34,21 @@ echo $this->include('layout/sidenav');
             DETAIL TUGAS
           </div>
           <div class="card-body">
-            <h1 class="card-title"><?= $tugas['nama_surah']; ?></h1>
+            <h1 class="card-title"><?= 'Surah ' . $tugas['nama_surah']; ?></h1>
             <p class="card-text"><b><?= $tugas['tugas']; ?></b></p>
-            <a href="#" class="btn btn-primary">Validasi</a>
-            <a href="#" class="btn btn-primary">Kelengkapan</a>
-            <a href="#" class="btn btn-success">Ambil Tugas</a>
-          </div>
-          <div class="card-footer text-muted">
-            Dibuat pada <br> <?= $tugas['created_at']; ?>
+            <div class="my-4">
+              <a href="#" class="btn btn-outline-warning btn-sm">edit</a>
+              <a href="#" class="btn btn-outline-danger btn-sm">delete</a>
+              <a href="#" class="btn btn-outline-primary btn-sm">Validasi</a>
+              <a href="#" class="btn btn-outline-dark btn-sm">Kelengkapan</a>
+              <a href="#" class="btn btn-outline-success btn-sm">Ambil Tugas</a>
+            </div>
+            <div class="card-footer text-muted text-sm">
+              Dibuat pada <br> <?= $tugas['created_at']; ?>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<?= $this->endSection(); ?>
+  <?= $this->endSection(); ?>
