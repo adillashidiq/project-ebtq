@@ -44,7 +44,7 @@ echo $this->include('layout/sidenav');
               <!-- cross site resource forgery -->
               <?= csrf_field(); ?>
               <div class="row mb-3">
-                <label for="nama_surah" class="col-sm-2 col-form-label">Nama Surah</label>
+                <label for="nama_surah" class="col-sm-2 col-form-label">Nama surah</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control <?= ($validation->hasError('nama_surah')) ? 'is-invalid' : ''; ?>" id="nama_surah" name="nama_surah" value="<?= old('nama_surah'); ?>">
                   <div id="nama_surah" class="invalid-feedback">
@@ -53,10 +53,10 @@ echo $this->include('layout/sidenav');
                 </div>
               </div>
               <div class=" row mb-3">
-                <label for="tugas" class="col-sm-2 col-form-label">Tugas</label>
+                <label for="tugas" class="col-sm-2 col-form-label">Deskripsi tugas</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control <?= ($validation->hasError('tugas')) ? 'is-invalid' : ''; ?>" id="tugas" name="tugas" value="<?= old('tugas'); ?>">
-                  <div id="nama_surah" class="invalid-feedback">
+                  <div id="tugas" class="invalid-feedback">
                     <?= $validation->getError('tugas'); ?>
                   </div>
                 </div>
