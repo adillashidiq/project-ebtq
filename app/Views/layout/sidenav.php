@@ -36,12 +36,6 @@
               <span class="nav-link-text">Input Tugas</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/pages/profil">
-              <i class="ni ni-single-02 text-yellow"></i>
-              <span class="nav-link-text">Profil</span>
-            </a>
-          </li>
         </ul>
         </ul>
       </div>
