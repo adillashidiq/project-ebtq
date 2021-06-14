@@ -36,13 +36,20 @@ echo $this->include('layout/sidenav');
           <div class="card-body">
             <h1 class="card-title"><?= 'Surah ' . $tugas['nama_surah']; ?></h1>
             <p class="card-text"><b><?= $tugas['tugas']; ?></b></p>
-            <div class="my-4">
-              <a href="#" class="btn btn-outline-warning btn-sm">edit</a>
-              <a href="#" class="btn btn-outline-danger btn-sm">delete</a>
-              <a href="#" class="btn btn-outline-primary btn-sm">Validasi</a>
-              <a href="#" class="btn btn-outline-dark btn-sm">Kelengkapan</a>
-              <a href="#" class="btn btn-outline-success btn-sm">Ambil Tugas</a>
+
+            <!-- Button -->
+            <div class="my-5">
+              <a href="/tugas/edit/<?= $tugas['slug']; ?>" class="btn btn-outline-warning btn-sm">edit</a>
+              <form action="/tugas/<?= $tugas['id']; ?>" method="post" class="d-inline">
+                <?= csrf_field(); ?>
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus data tersebut?')">delete</button>
+              </form>
+              <a href="#" class="btn btn-outline-primary btn-sm">validasi</a>
+              <a href="#" class="btn btn-outline-dark btn-sm">kelengkapan</a>
+              <a href="#" class="btn btn-outline-success btn-sm">ambil tugas</a>
             </div>
+
             <div class="card-footer text-muted text-sm">
               Dibuat pada <br> <?= $tugas['created_at']; ?>
             </div>
