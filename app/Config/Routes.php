@@ -35,8 +35,10 @@ $routes->setAutoRoute(true);
 // ketika ada akses yg metode request-nya 'get' / '(ketika mengetikkan sesuatu di URL)'
 // alamatnya adalah '/' (root/baseURL) arahkan ke controller Home, lalu methodnya index
 $routes->get('/', 'Pages::index');
+$routes->get('/tugas/edit/(:segment)', 'Tugas::edit/$1');
 $routes->get('/tugas/addtugas', 'Tugas::addtugas');
-$routes->get('/tugas/(:segment)', 'Tugas::detail/$1');
+$routes->delete('/tugas/(:num)', 'Tugas::delete/$1');
+$routes->get('/tugas/(:any)', 'Tugas::detail/$1');
 
 /*
  * --------------------------------------------------------------------
