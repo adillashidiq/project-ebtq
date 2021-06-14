@@ -55,10 +55,10 @@ class Tugas extends BaseController
   {
     if (!$this->validate([
       'nama_surah' => [
-        'rules' => 'required|is_unique[tugas.nama_surah]',
+        'rules' => 'required',
         'errors' => [
           'required' => 'Nama surah harus diisi',
-          'is_unique' => 'Nama surah sudah terdaftar'
+          // 'is_unique' => 'Nama surah sudah terdaftar'
         ]
       ],
       'tugas' => [
@@ -81,6 +81,60 @@ class Tugas extends BaseController
     ]);
 
     session()->setFlashdata('pesan', 'Berhasil menambahkan tugas baru');
+
+    return redirect()->to('/tugas');
+  }
+
+  public function delete($id)
+  {
+    $this->tugasModel->delete($id);
+    session()->setFlashdata('pesan', 'Berhasil menghapus tugas');
+    return redirect()->to('/tugas');
+  }
+
+  public function edit($slug)
+  {
+    $data = [
+      'title' => 'Edit Tugas | E-BTQ HMJ TI',
+      'validation' => \Config\Services::validation(),
+      'tugas' => $this->tugasModel->getTugas($slug)
+    ];
+    return view('tugas/edit-tugas', $data);
+  }
+
+  public function update($id)
+  {
+
+
+    if (!$this->validate([
+      'nama_surah' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'Nama surah harus diisi',
+          // 'is_unique' => 'Nama surah sudah terdaftar'
+        ]
+      ],
+      'tugas' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'Deskripsi tugas harus diisi'
+        ]
+      ]
+    ])) {
+      $validation = \Config\Services::validation();
+      return redirect()->to('/tugas/edit/' . $this->request->getVar('slug'))->withInput()->with('validation', $validation);
+    }
+
+    $slug = url_title($this->request->getVar('nama_surah'), '-', true);
+
+    $this->tugasModel->save([
+      'id' => $id,
+      'nama_surah' => $this->request->getVar('nama_surah'),
+      'slug' => $slug,
+      'tugas' => $this->request->getVar('tugas'),
+    ]);
+
+    session()->setFlashdata('pesan', 'Berhasil merubah data tugas');
 
     return redirect()->to('/tugas');
   }
